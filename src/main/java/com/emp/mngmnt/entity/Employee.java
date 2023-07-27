@@ -14,9 +14,9 @@ public class Employee {
 	@Column
 	private String empname;
 	@Column
-	private String empstate;
+	private  String empstate;
 	@Column
-	private String designation;
+	private  String designation;
 	@Column
 	private Integer mobileno;
 	@Column
