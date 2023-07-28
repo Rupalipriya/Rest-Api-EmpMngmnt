@@ -14,7 +14,7 @@ public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private String id;
+	private Integer id;
 	@Column
 	private String empname;
 	@Column
@@ -28,10 +28,11 @@ public class Employee {
 	@Column
 	private String empcode;
 	
-	public String getId() {
+	
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getEmpname() {
