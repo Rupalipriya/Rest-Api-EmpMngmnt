@@ -1,7 +1,10 @@
 package com.emp.mngmnt.entity;
 
+import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,6 +13,7 @@ import javax.persistence.Table;
 public class Employee {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private String id;
 	@Column
 	private String empname;
@@ -18,7 +22,7 @@ public class Employee {
 	@Column
 	private  String designation;
 	@Column
-	private Integer mobileno;
+	private String mobileno;
 	@Column
 	private String salarygrade;
 	@Column
@@ -48,10 +52,11 @@ public class Employee {
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
-	public Integer getMobileno() {
+	
+	public String getMobileno() {
 		return mobileno;
 	}
-	public void setMobileno(Integer mobileno) {
+	public void setMobileno(String mobileno) {
 		this.mobileno = mobileno;
 	}
 	public String getSalarygrade() {
