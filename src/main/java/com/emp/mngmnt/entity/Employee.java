@@ -12,9 +12,7 @@ import javax.persistence.Table;
 @Table(name="employee")
 public class Employee {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer id;
+	
 	@Column
 	private String empname;
 	@Column
@@ -25,16 +23,10 @@ public class Employee {
 	private String mobileno;
 	@Column
 	private String salarygrade;
-	@Column
+	@Id
 	private String empcode;
 	
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
 	public String getEmpname() {
 		return empname;
 	}
