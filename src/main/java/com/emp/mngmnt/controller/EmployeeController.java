@@ -6,11 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.emp.mngmnt.entity.Employee;
+import com.emp.mngmnt.entity.Employee;import com.emp.mngmnt.model.EmployeeModel;
 import com.emp.mngmnt.service.EmployeeService;
 
 @RestController
@@ -34,5 +35,11 @@ private EmployeeService employeeService;
 	return new ResponseEntity<Employee>(employee,HttpStatus.OK);
 		
 	}
+	
+@PutMapping("/update")
+public ResponseEntity<Employee> updateByEmpcode(@RequestBody EmployeeModel employeeModel) {
+	Employee employee=  employeeService.updateByEmpcode(employeeModel);
+	return new ResponseEntity<Employee>(employee,HttpStatus.OK);
+ }
 	
 }
