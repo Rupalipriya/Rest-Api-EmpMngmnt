@@ -41,4 +41,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employee2;
 	}
 
+	@Override
+	public String deleteByEmpcode(String empcode) {
+		employeeRepo.deleteById(empcode);
+		return "Success: "+empcode +" Deleted";
+	}
+
 }

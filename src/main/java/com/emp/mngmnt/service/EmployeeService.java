@@ -8,5 +8,6 @@ public interface EmployeeService {
  Employee saveEmployee(Employee employee);
 Employee  getById(String id);
 Employee  updateByEmpcode(EmployeeModel employeeModel);
+ String   deleteByEmpcode(String empcode);//"Success"
 
 }

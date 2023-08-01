@@ -3,6 +3,7 @@ package com.emp.mngmnt.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,5 +42,12 @@ public ResponseEntity<Employee> updateByEmpcode(@RequestBody EmployeeModel emplo
 	Employee employee=  employeeService.updateByEmpcode(employeeModel);
 	return new ResponseEntity<Employee>(employee,HttpStatus.OK);
  }
+
+@DeleteMapping("delete/{empcode}")
+ public ResponseEntity<String> deleteByEmpCode(@PathVariable String empcode){
+String response=employeeService.deleteByEmpcode(empcode);
+return new ResponseEntity<String>(response,HttpStatus.OK);
+  }
+
 	
 }
