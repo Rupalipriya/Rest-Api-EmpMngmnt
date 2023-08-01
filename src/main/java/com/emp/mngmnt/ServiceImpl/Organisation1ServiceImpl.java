@@ -1,5 +1,7 @@
 package com.emp.mngmnt.ServiceImpl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,13 @@ public class Organisation1ServiceImpl implements Organisation1Service {
 	public Organisation1 saveOrganisation1(Organisation1 organisation1) {
 		Organisation1 Organisation12=organisation1Repo.save(organisation1);
 		return Organisation12;
+	}
+
+	@Override
+	public Organisation1 getById(String id) {
+		Optional<Organisation1> optional=organisation1Repo.findById(id);
+		Organisation1 organisation13=optional.get();
+		return organisation13;
 	}
 
 }
