@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.emp.mngmnt.Repository.Organisation1Repo;
 import com.emp.mngmnt.entity.Organisation1;
+import com.emp.mngmnt.model.OrganisationModel;
 import com.emp.mngmnt.service.Organisation1Service;
 
 
@@ -26,6 +27,23 @@ public class Organisation1ServiceImpl implements Organisation1Service {
 		Optional<Organisation1> optional=organisation1Repo.findById(id);
 		Organisation1 organisation13=optional.get();
 		return organisation13;
+	}
+
+	@Override
+	public Organisation1 updateByOrgid(OrganisationModel organisationModel) {
+		Optional<Organisation1> optional=organisation1Repo.findById(organisationModel.getOrgid());
+		Organisation1 organisation13=optional.get();
+		organisation13.setOrgid(organisationModel.getOrgid());
+		organisation13.setLocation(organisationModel.getLocation());
+		organisation13.setOrgemail(organisationModel.getOrgemail());
+		Organisation1 Organisation12=organisation1Repo.save(organisation13);
+		return Organisation12;
+	}
+
+	@Override
+	public String deleteByOrgid(String orgid) {
+		organisation1Repo.deleteById(orgid);
+		return "success:"+orgid +" deleted";
 	}
 
 }
