@@ -2,11 +2,14 @@ package com.emp.mngmnt.ServiceImpl;
 
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.emp.mngmnt.Repository.EmployeeRepo;
+import com.emp.mngmnt.controller.EmployeeController;
 import com.emp.mngmnt.entity.Employee;
 import com.emp.mngmnt.model.EmployeeModel;
 import com.emp.mngmnt.service.EmployeeService;
@@ -14,13 +17,17 @@ import com.emp.mngmnt.service.EmployeeService;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 	
+	private	Logger logger=LoggerFactory.getLogger(EmployeeServiceImpl.class);
+	
 	@Autowired
 	private EmployeeRepo employeeRepo;
 	
 
 	@Override
 	public Employee saveEmployee(Employee employee) {
+		logger.info("SaveEmployee() service method");
 	Employee employee2=	employeeRepo.save(employee);
+	logger.info("employee2 object "+ employee2);
 		return employee2;
 	}
 

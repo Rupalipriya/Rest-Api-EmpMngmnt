@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import net.bytebuddy.implementation.bind.annotation.Empty;
+
 @Entity
 @Table(name="employee")
 public class Employee {
